@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/05 22:16:29 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/10/23 23:56:37 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/10/24 22:27:46 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include <stddef.h>
 
-size_t	ft_strlen (const char *str)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	count;
+unsigned char	*p1;
+unsigned char	*p2;
+size_t			i;
 
-	count = 0;
-	while (str[count]!= '\0')
-	{
-		count++;
-	}
-	return (count);
+i = 0;
+p1 = (unsigned char *) s1;
+p2 = (unsigned char *) s2;
+while (i <= n - 1)
+{
+	if (p1[i] != p2[i])
+		return (p1[i] - p1[i]);
+	i++;
 }
-int main (void)
-{
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
-	return (0);
+return (0);
 }

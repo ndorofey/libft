@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/05 22:16:29 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/10/20 19:12:23 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/10/20 19:12:25 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
+#include <ctype.h>
 
-size_t	ft_strlen (const char *str)
+int ft_isalnum (int c)
 {
-	size_t	count;
-
-	count = 0;
-	while (str[count]!= '\0')
-	{
-		count++;
-	}
-	return (count);
+	if (c >= 48 && c <= 57)
+		return (1);
+	if (c >= 65 && c <= 90)
+		return (1);
+	if (c >= 97 && c <= 122)
+		return (1);
+	return (0);
 }
 int main (void)
 {
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
+	printf ("Esta es nuestra fucnion:%i\n", ft_isalnum ('2'));
+	printf ("Esta es funcion real:%i\n", ft_isalnum ('C'));
+	printf ("Esta es otra funcion real:%i\n", ft_isalnum ('c'));
 	return (0);
 }

@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/05 22:16:29 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/10/20 20:32:29 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/10/28 00:37:23 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-size_t	ft_strlen (const char *str)
+char	*ft_strrchr(char *s, int c)
 {
-	size_t	count;
+	int		i;
+	char	*ptr;
+	char	new;
 
-	count = 0;
-	while (str[count]!= '\0')
+	i = 0;
+	new = (char) c;
+	ptr = 0;
+	while (s[i])
 	{
-		count++;
+		if (s[i] == new)
+			ptr = (char *)s + i;
+		i ++;
 	}
-	return (count);
+	return (ptr);
 }
-int main (void)
+
+#include <string.h>
+#include <stdio.h>
+
+int main(void)
 {
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
+	printf("%s\n", ft_strrchr("patas", 'a'));
 	return (0);
 }

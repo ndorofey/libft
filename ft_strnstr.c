@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/05 22:16:29 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/10/24 23:41:41 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/10/24 23:53:28 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include <stddef.h>
 
-size_t	ft_strlen (const char *str)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	count;
+	size_t		i;
+	size_t		j;
 
-	count = 0;
-	while (str[count]!= '\0')
+	i = 0;
+	if(needle || needle[i] == '\0')
+		return (char *) haystack;
+	while(i <= len - 1 && haystack[i] != '\0')
 	{
-		count++;
+		j = 0;
+		while(i + j < len && haystack[i + j] == needle[j])
+		{
+			if(needle[j] == '\0')
+				return ((char *) haystack + i);
+			j++;
+		}
+		i++;
 	}
-	return (count);
-}
-int main (void)
-{
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
 	return (0);
 }

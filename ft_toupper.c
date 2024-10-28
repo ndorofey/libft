@@ -3,25 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndorofey <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 22:44:50 by ndorofey          #+#    #+#             */
-/*   Updated: 2024/09/26 22:59:06 by ndorofey         ###   ########.fr       */
+/*   Created: 2024/10/28 02:01:30 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/10/28 02:02:58 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <ctype.h>
 
-int	ft_toupper (int c)
+int	ft_tolower(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
+	if(c >= 97 && c <= 122)
+		return (c - 32);
 	return (c);
-}
-int	main (void)
-{
-	printf ("esta es la funcion: c\n", ft_toupper("c"));
-	printf ("esta es la funcion: c\n", toupper("C"));
-		return (0);
 }

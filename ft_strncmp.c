@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/05 22:16:29 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/10/23 23:45:28 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/10/23 23:55:58 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include <stddef.h>
 
-size_t	ft_strlen (const char *str)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	count;
+size_t	i;
 
-	count = 0;
-	while (str[count]!= '\0')
-	{
-		count++;
-	}
-	return (count);
+i = 0;
+while (i <= n - 1 && (s1[i] != '\0' || s2[i] != '\0'))
+{
+	if (s1[i] != s2[i])
+	return (unsigned char) (s1[i]) - (unsigned char) (s2[i]);
+	i++;
 }
-int main (void)
-{
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
-	return (0);
+return (0);
 }

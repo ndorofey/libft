@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/05 22:16:29 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/10/22 22:58:56 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/10/28 16:26:09 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include <stddef.h>
 
-size_t	ft_strlen (const char *str)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	count;
+	if (n == 0)
+	return;
+	ft_memset (s, '\0', n);
+}
+/*#include <stdio.h>
 
-	count = 0;
-	while (str[count]!= '\0')
-	{
-		count++;
-	}
-	return (count);
-}
-int main (void)
-{
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
-	return (0);
-}
+void ft_bzero(void *s, size_t n);
+
+int main() {
+    char str[10] = "Hello";
+    printf("Before ft_bzero: '%s'\n", str);
+    ft_bzero(str, 5);
+    printf("After ft_bzero: '%s'\n", str); // Debería mostrar cinco caracteres nulos
+    return 0;
+}*/

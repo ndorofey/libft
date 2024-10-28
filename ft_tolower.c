@@ -3,25 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndorofey <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 23:11:03 by ndorofey          #+#    #+#             */
-/*   Updated: 2024/09/26 23:20:47 by ndorofey         ###   ########.fr       */
+/*   Created: 2024/10/28 01:55:10 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/10/28 02:00:11 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <ctype.h>
 
-int	ft_tolower (int C)
+int	ft_tolower(int c)
 {
-	if (C >= 'A' && C <= 'Z')
-		C += 32;
-	return (C);
+	if(c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }
-int main (void)
-{
-	printf ("esta es la funcion: %C\n", ft_tolower ('C'));
-	printf ("esta es la funcion real: %C\n", tolower ('C'));
-	return (0);
-}	

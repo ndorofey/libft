@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/05 22:16:29 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/10/22 22:36:35 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/10/28 00:38:27 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include <stddef.h>
 
-size_t	ft_strlen (const char *str)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t	count;
+	size_t			i;
+	unsigned char	*f;
+	unsigned char	n;
 
-	count = 0;
-	while (str[count]!= '\0')
+	f = (unsigned char *)b;
+	n = (unsigned char)c;
+	i = 0; 
+	while (i <= len - 1)
 	{
-		count++;
+		f[i] = n;
+		i++;
 	}
-	return (count);
+	return ((void *)f);
+
 }
-int main (void)
+#include <string.h>
+#include <stdio.h>
+
+int main(void)
 {
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
+	char	str[5] = "hola";
+	
+	printf("%s", (char *)ft_memset((void *)str, 'a', 3));
 	return (0);
 }
