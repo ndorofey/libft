@@ -3,45 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
+/*   By: ndorofey <ndorofey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 20:22:55 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/27 23:38:18 by nikitadorof      ###   ########.fr       */
+/*   Updated: 2024/10/28 18:23:41 by ndorofey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstddef>
+#include "libft.h"
 
-char *ft_strchr(const char *s, int c)
-{
-    char new;
-
-    new = (char)c;
-    while (*s)
-    {
-        if (*s == new)
-            return (char *)s;
-        s++;
-    }
-    if (new == '\0')
-        return (char *)s;
-    return (NULL);
-}
-
-#include <string.h>
-#include <stdio.h>
-
-int main(void)
-{
-    char *result = ft_strchr("hola", 'o');
-    if (result)
-        printf("%c\n", *result);
-    else
-        printf("Carácter no encontrado\n");
-    return (0);
-}
-
-char	ft_strchr (const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	char new;
 	int	i;
@@ -51,15 +22,13 @@ char	ft_strchr (const char *s, int c)
 	while (*s)
 	{
 		if (*s == new)
-			return ((char *)s);
-		s++;
+			return ((char *)s + i);
+		i++;
 	}
-	if (new == '\0')
-		return ((char *)s);
-	return (0);
+	return (NULL);
 }
 
-
+/*
 #include <string.h>
 #include <stdio.h>
 
@@ -67,4 +36,4 @@ int main(void)
 {
 	printf("%c\n", ft_strchr("hola", 'o'));
 	return (0);
-}
+}*/

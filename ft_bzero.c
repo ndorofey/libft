@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
+/*   By: ndorofey <ndorofey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 22:58:56 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/28 16:26:09 by nikitadorof      ###   ########.fr       */
+/*   Updated: 2024/10/28 20:21:59 by ndorofey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -19,8 +19,6 @@ void	ft_bzero(void *s, size_t n)
 	ft_memset (s, '\0', n);
 }
 /*#include <stdio.h>
-
-void ft_bzero(void *s, size_t n);
 
 int main() {
     char str[10] = "Hello";

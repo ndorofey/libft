@@ -3,32 +3,39 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+         #
+#    By: ndorofey <ndorofey@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/27 22:36:38 by nikitadorof       #+#    #+#              #
-#    Updated: 2024/10/28 16:33:37 by nikitadorof      ###   ########.fr        #
+#    Updated: 2024/10/28 20:30:18 by ndorofey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET = myprog
+NAME = libft.a
 
-OBJS = ft_isalnum.c ft_isascii.o ft_isprint.o\
-ft_memcpy.o ft_memset.o ft_strlcpy.o ft_strncmp.o\
-ft_strrchr.o ft_bzero.o ft_isalpha.o ft_isdigit.o\
-ft_memcmp.o ft_memchr.o ft_strchr.o ft_strlen.o ft_strnstr.o
-INCDIR = ../inc
+SRC = ft_isalnum.c ft_isascii.c ft_isprint.c\
+ft_memcpy.c ft_memset.c ft_strlcpy.c ft_strncmp.c\
+ft_strrchr.c ft_bzero.c ft_isalpha.c ft_isdigit.c\
+ft_memcmp.c ft_memchr.c ft_strchr.c ft_strlen.c ft_strnstr.c\
+ft_strlcat.c ft_memmove.c ft_atoi.c 
+OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Werror -Wextra -Wall -I(INCDIR)
-
-$(TARGET) : $(OBJS)
-	mkdir -p $(BIN_DIR)
-	gcc $(CFLAGS) $(OBJS) -o $(TARGET)
-
-$(OBJ_DIR)/%.o : $(OBJ_DIR)/ %.c
-	mkdir -p $(OBJ_DIR)
-	gcc -c $(CFLAGS) $< -o $@
+CFLAGS = -Werror -Wextra -Wall
+CC = gcc
+LIB = ar -rsc
+RM = rm -f
 
 
-.PHONY : clean
+all: $(NAME)
+
+$(NAME): $(OBJ) 
+	$(LIB) $(NAME) $(OBJ)
+
+%.o: %.c libft.h Makefile
+	$(CC) $(CFLAGS) -c -o $@ $<
 clean:
-	rm -f *.o $(OBJ_DIR) $(BIN_DIR)
+	$(RM) $(OBJ)
+fclean: clean
+	$(RM) $(NAME)
+re: fclean all
+
+.PHONY: clean fclean re

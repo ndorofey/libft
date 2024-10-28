@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndorofey <ndorofey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 19:12:23 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/28 20:18:52 by ndorofey         ###   ########.fr       */
+/*   Created: 2024/10/28 19:32:09 by ndorofey          #+#    #+#             */
+/*   Updated: 2024/10/28 20:28:51 by ndorofey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalnum(int c)
+size_t  ft_strlcat(char *dst, const char *src, size_t size)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	if (c >= 65 && c <= 90)
-		return (1);
-	if (c >= 97 && c <= 122)
-		return (1);
-	return (0);
+    size_t  i;
+    size_t  j;
+    size_t  len;
+
+    i = 0;
+    j = ft_strlen(dst);
+    len = ft_strlen(dst);
+    while (src[i] && i < size - 1 && size > 0)
+    {
+        dst[j] = src[i];
+        i++;
+        j++;
+    }
+    dst[j] = '\0';
+    if (size < len)
+        len = size;
+    return (len + ft_strlen(src));
 }
-/*int main (void)
-{
-	printf ("Esta es nuestra fucnion:%i\n", ft_isalnum ('2'));
-	printf ("Esta es funcion real:%i\n", ft_isalnum ('C'));
-	printf ("Esta es otra funcion real:%i\n", ft_isalnum ('c'));
-	return (0);
-}*/

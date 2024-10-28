@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
+/*   By: ndorofey <ndorofey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/10/05 22:16:29 by nikitadorof      ###   ########.fr       */
+/*   Updated: 2024/10/28 20:28:42 by ndorofey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlen (const char *str)
 {
@@ -24,9 +23,9 @@ size_t	ft_strlen (const char *str)
 	}
 	return (count);
 }
-int main (void)
+/*int main (void)
 {
 	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
 	printf ("mi funcion real es: %lu", strlen("hola"));
 	return (0);
-}
+}*/
