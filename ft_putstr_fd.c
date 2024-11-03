@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/11/01 20:58:26 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/10/30 23:27:26 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/11/01 19:25:05 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	count;
+	int	i;
 
-	count = 0;
-	while (str[count]!= '\0')
+	i = 0;
+	while(s[i] != '\0')
 	{
-		count++;
+		write(fd, &s[i], 1);
+		i++;
 	}
-	return (count);
 }
-/*int main (void)
-{
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
-	return (0);
-}*/

@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/11/01 20:58:26 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/10/30 23:05:02 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/11/01 21:04:51 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	count;
+	char	*dst;
+	size_t	i;
+	size_t	j;
 
-	count = 0;
-	while (str[count]!= '\0')
+	if (!s)
+		return (0);
+	else if (start >= (unsigned int)ft_strlen(s))
+		return (ft_strdup(""));
+	i = ft_strlen(s + start);
+	if (i < len)
+		len = i;
+	dst = malloc(sizeof(char) * (len + 1));
+	if (!dst)
+		return (NULL);
+	j = 0;
+	while (j < len)
 	{
-		count++;
+		dst[j] = s[start + j];
+		j++;
 	}
-	return (count);
+	dst[j] = '\0';
+	return (dst);
 }
-/*int main (void)
-{
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
-	return (0);
-}*/

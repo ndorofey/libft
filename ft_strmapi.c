@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/11/01 20:58:26 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/11/01 19:59:39 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/11/01 21:03:17 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	count;
+	char	*full;
+	unsigned int	i;
 
-	count = 0;
-	while (str[count]!= '\0')
+	if (!s)
+		return(0);
+	full = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!full)
+		return(0);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		count++;
+		full[i] = f(i, s[i]);
+		i++;
 	}
-	return (count);
+	full[i] = '\0';
+	return(full);
 }
-/*int main (void)
-{
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
-	return (0);
-}*/

@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/11/01 20:58:26 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/11/02 23:12:22 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/11/02 23:16:19 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	count;
+	int		i;
+	int		j;
+	char	*dst;
 
-	count = 0;
-	while (str[count]!= '\0')
-	{
-		count++;
-	}
-	return (count);
+	if (!s1 || !s2)
+		return (NULL);
+	i = 0;
+	j = 0;
+	
 }
-/*int main (void)
-{
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
-	return (0);
-}*/

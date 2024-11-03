@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitadorofeychik <nikitadorofeychik@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 21:35:01 by nikitadorof       #+#    #+#             */
-/*   Updated: 2024/11/01 20:58:26 by nikitadorof      ###   ########.fr       */
+/*   Created: 2024/11/01 19:25:37 by nikitadorof       #+#    #+#             */
+/*   Updated: 2024/11/01 21:01:08 by nikitadorof      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	count;
-
-	count = 0;
-	while (str[count]!= '\0')
+	if(n == -2147483648)
 	{
-		count++;
+		write(fd, "-2", 2);
+		n = 147483648;
 	}
-	return (count);
+	if(n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if(n < 10)
+	{
+		ft_putchar_fd(n + 48, fd);
+		return;
+	}
+	else
+		ft_putchar_fd((n/10),fd);
+	ft_putnbr_fd((n % 10),fd);
+	
 }
-/*int main (void)
-{
-	printf ("mi funcion es: %zu\n", ft_strlen("hola"));
-	printf ("mi funcion real es: %lu", strlen("hola"));
-	return (0);
-}*/
